@@ -12,15 +12,15 @@ RUN mvn package
 
 #pull base image
 
-FROM adoptopenjdk/openjdk11:jdk-11.0.2.9-alpine-slim
+FROM eclipse-temurin:11.0.18_10-jre-jammy
 
 COPY hooks /tmp/hooks/
 COPY wait-for /tmp/
 
-RUN apk --no-cache --update add git
+#RUN apk --no-cache --update add git
 
 # resolving CVE-2019-14697
-RUN apk upgrade musl
+#RUN apk upgrade musl
 
 #maintainer
 MAINTAINER ttran@pingidentity.com
